@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"build": "turbo build",
+		"turbo": "turbo turbo",
 		"dev": "turbo dev",
 		"lint": "turbo lint",
 		"format": "biome format --write ."
