@@ -1,8 +1,12 @@
 import { ArrowRight, Sparkles, Users } from 'lucide-react'
+import type React from 'react'
 
 export function Features() {
   return (
-    <section id="features" className="grid md:grid-cols-3 gap-8 text-white py-12">
+    <section
+      id="features"
+      className="grid gap-8 py-12 text-white md:grid-cols-3"
+    >
       <FeatureCard
         icon={<Sparkles className="h-6 w-6" />}
         title="Dynamic Gameplay"
@@ -25,15 +29,23 @@ export function Features() {
   )
 }
 
-function FeatureCard({ icon, title, description, gradient }) {
+interface FeatureCardProps {
+  icon: React.ReactNode
+  title: string
+  description: string
+  gradient: string
+}
+
+function FeatureCard({ icon, title, description, gradient }: FeatureCardProps) {
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/30 transition cursor-pointer">
-      <div className={`bg-gradient-to-br ${gradient} w-12 h-12 rounded-full flex items-center justify-center mb-4`}>
+    <div className="cursor-pointer rounded-2xl bg-white/20 p-6 backdrop-blur-sm transition hover:bg-white/30">
+      <div
+        className={`bg-gradient-to-br ${gradient} mb-4 flex h-12 w-12 items-center justify-center rounded-full`}
+      >
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <h3 className="mb-2 font-semibold text-xl">{title}</h3>
       <p className="text-white/90">{description}</p>
     </div>
   )
 }
-

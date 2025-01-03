@@ -1,17 +1,18 @@
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { ArrowRight, Sparkles, Users, Shield, Zap, Gift } from 'lucide-react'
+import { ArrowRight, Gift, Shield, Sparkles, Users, Zap } from 'lucide-react'
+import type React from 'react'
+import { Footer } from '../../components/footer'
+import { Header } from '../../components/header'
 
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 flex flex-col">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] opacity-5 bg-repeat"></div>
-      <div className="flex flex-col min-h-screen">
-        <div className="container mx-auto px-4 py-8 flex-grow">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
+      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-5" />
+      <div className="flex min-h-screen flex-col">
+        <div className="container mx-auto flex-grow px-4 py-8">
           <Header />
           <main className="mt-16">
-            <h1 className="text-4xl font-bold text-white mb-8">Features</h1>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <h1 className="mb-8 font-bold text-4xl text-white">Features</h1>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               <FeatureCard
                 icon={<Sparkles className="h-6 w-6" />}
                 title="Dynamic Gameplay"
@@ -51,19 +52,22 @@ export default function FeaturesPage() {
   )
 }
 
-function FeatureCard({ icon, title, description }) {
+interface FeatureCardProps {
+  icon: React.ReactNode
+  title: string
+  description: string
+}
+
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/30 transition cursor-pointer">
-      <div className="flex items-center mb-4">
-        <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-12 h-12 rounded-full flex items-center justify-center mr-4">
-          <div className="text-white">
-            {icon}
-          </div>
+    <div className="cursor-pointer rounded-2xl bg-white/20 p-6 backdrop-blur-sm transition hover:bg-white/30">
+      <div className="mb-4 flex items-center">
+        <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+          <div className="text-white">{icon}</div>
         </div>
-        <h3 className="text-xl font-semibold text-white">{title}</h3>
+        <h3 className="font-semibold text-white text-xl">{title}</h3>
       </div>
       <p className="text-white/90">{description}</p>
     </div>
   )
 }
-

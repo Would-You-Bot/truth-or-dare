@@ -1,50 +1,65 @@
 'use client'
 
-import { useState } from 'react'
+import { Menu, Sparkles, X } from 'lucide-react'
 import Link from 'next/link'
-import { Sparkles, Menu, X } from 'lucide-react'
+import type React from 'react'
+import { useState } from 'react'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <header className="relative z-10">
-      <div className="flex justify-between items-center">
-        <Link href="/" className="text-white text-2xl font-bold flex items-center gap-2">
+      <div className="flex items-center justify-between">
+        <Link
+          href="/"
+          className="flex items-center gap-2 font-bold text-2xl text-white"
+        >
           <Sparkles className="h-6 w-6" />
           Truth or Dare
         </Link>
-        <nav className="hidden md:flex gap-4">
+        <nav className="hidden gap-4 md:flex">
           <HeaderLink href="/features">Features</HeaderLink>
           <HeaderLink href="/about">About</HeaderLink>
         </nav>
-        <div className="hidden md:flex gap-4">
-          <Link 
+        <div className="hidden gap-4 md:flex">
+          <Link
             href="#waitlist"
-            className="bg-white text-purple-600 px-6 py-2 rounded-full font-medium hover:bg-white/90 transition"
+            className="rounded-full bg-white px-6 py-2 font-medium text-purple-600 transition hover:bg-white/90"
           >
             Join Waitlist
           </Link>
         </div>
-        <button 
-          className="md:hidden text-white hover:bg-white/10 p-2 rounded-full transition"
+        <button
+          type="button"
+          className="rounded-full p-2 text-white transition hover:bg-white/10 md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
         </button>
       </div>
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 mx-4 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl md:hidden">
+        <div className="absolute top-full right-0 left-0 mx-4 mt-2 rounded-2xl border border-white/20 bg-white/10 p-4 shadow-xl backdrop-blur-md md:hidden">
           <nav className="flex flex-col gap-4">
-            <HeaderLink href="/features" onClick={() => setIsMenuOpen(false)}>
+            <HeaderLink
+              href="/features"
+              onClick={() => setIsMenuOpen(false)}
+            >
               Features
             </HeaderLink>
-            <HeaderLink href="/about" onClick={() => setIsMenuOpen(false)}>
+            <HeaderLink
+              href="/about"
+              onClick={() => setIsMenuOpen(false)}
+            >
               About
             </HeaderLink>
-            <Link 
+            <Link
               href="#waitlist"
-              className="bg-white text-purple-600 px-6 py-3 rounded-full font-medium hover:bg-white/90 transition text-center"
+              className="rounded-full bg-white px-6 py-3 text-center font-medium text-purple-600 transition hover:bg-white/90"
               onClick={() => setIsMenuOpen(false)}
             >
               Join Waitlist
@@ -56,15 +71,20 @@ export function Header() {
   )
 }
 
-function HeaderLink({ href, children, ...props }) {
+interface HeaderLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string
+  children: React.ReactNode
+}
+
+function HeaderLink({ href, children, ...props }: HeaderLinkProps) {
   return (
-    <Link 
+    <Link
       href={href}
-      className="text-white/80 hover:text-white transition"
+      className="text-white/80 transition hover:text-white"
       {...props}
     >
       {children}
     </Link>
   )
 }
-
