@@ -7,10 +7,17 @@ settings:
 importers:
 
   .:
+    dependencies:
+      ultracite:
+        specifier: 4.1.14
+        version: 4.1.14
     devDependencies:
-      '@workspace/typescript-config':
+      '@biomejs/biome':
+        specifier: 1.9.4
+        version: 1.9.4
+      '@workspace/tsconfig':
         specifier: workspace:*
-        version: link:packages/typescript-config
+        version: link:packages/tsconfig
       prettier:
         specifier: ^3.2.5
         version: 3.4.2
@@ -72,9 +79,6 @@ importers:
         specifier: ^3.23.8
         version: 3.24.1
     devDependencies:
-      '@biomejs/biome':
-        specifier: 1.9.4
-        version: 1.9.4
       '@types/node':
         specifier: ^20
         version: 20.17.10
@@ -84,9 +88,9 @@ importers:
       '@types/react-dom':
         specifier: 18.3.1
         version: 18.3.1
-      '@workspace/typescript-config':
+      '@workspace/tsconfig':
         specifier: workspace:*
-        version: link:../../packages/typescript-config
+        version: link:../../packages/tsconfig
       postcss:
         specifier: ^8
         version: 8.4.49
@@ -100,7 +104,7 @@ importers:
         specifier: 4.1.14
         version: 4.1.14
 
-  packages/typescript-config: {}
+  packages/tsconfig: {}
 
   packages/ui:
     dependencies:
@@ -147,9 +151,9 @@ importers:
       '@types/react-dom':
         specifier: 18.3.1
         version: 18.3.1
-      '@workspace/typescript-config':
+      '@workspace/tsconfig':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../tsconfig
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)

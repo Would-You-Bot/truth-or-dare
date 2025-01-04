@@ -10,30 +10,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [
-      "node_modules",
-      "dist",
-      "build",
-      "coverage",
-      ".next",
-      ".github",
-      ".vscode",
-      ".idea",
-      ".DS_Store",
-      ".git",
-      ".gitignore",
-      ".gitattributes",
-      ".npmrc",
-      ".pnp.js",
-      ".pnp.cjs",
-      ".pnp.mjs",
-      ".pnp.json",
-      ".pnp.yaml",
-      ".pnp.yml",
-      ".pnp.lock",
-      ".pnpify",
-      ".env*"
-    ]
+    "ignore": ["packages/ui/src/**"]
   },
   "linter": {
     "enabled": true,
