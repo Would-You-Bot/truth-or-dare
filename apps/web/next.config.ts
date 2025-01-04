@@ -1,8 +1,28 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['@workspace/ui'],
-  output: "standalone",
+  output: 'standalone',
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self' https://top.gg https://bottom.gg;"
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          }
+        ]
+      }
+    ]
+  },
   images: {
     remotePatterns: [
       {
