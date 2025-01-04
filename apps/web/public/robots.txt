@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+
+# Cliqzbot
+User-agent: Cliqzbot
+Disallow: /
+
+# MJ12bot
+User-agent: MJ12bot
+Disallow: /
+
+# Host
+Host: https://truthordare.gg
