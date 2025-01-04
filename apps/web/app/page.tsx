@@ -1,7 +1,7 @@
-import { Features } from '@/components/features'
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
-import { Hero } from '@/components/hero'
+import { Features } from '@/components/Features'
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
+import { Hero } from '@/components/Hero'
 import { PhoneMockups } from '@/components/phone-mockups'
 
 export default function TruthOrDareLanding() {

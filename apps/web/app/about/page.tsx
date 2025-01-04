@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import Image from 'next/image'
-import { Footer } from '../../components/footer'
-import { Header } from '../../components/header'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 
 export default function AboutPage() {
   return (
