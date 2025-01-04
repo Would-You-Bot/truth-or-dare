@@ -2,7 +2,7 @@
 
 import { Menu, Sparkles, X } from 'lucide-react'
 import Link from 'next/link'
-import type React from 'react'
+
 import { useState } from 'react'
 
 export function Header() {

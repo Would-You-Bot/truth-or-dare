@@ -1,5 +1,5 @@
 import { ArrowRight, Gift, Shield, Sparkles, Users, Zap } from 'lucide-react'
-import type React from 'react'
+
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
 

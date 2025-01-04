@@ -100,9 +100,6 @@ importers:
       typescript:
         specifier: ^5
         version: 5.7.2
-      ultracite:
-        specifier: 4.1.14
-        version: 4.1.14
 
   packages/tsconfig: {}
 

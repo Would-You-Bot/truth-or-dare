@@ -1,5 +1,4 @@
 import { ArrowRight, Sparkles, Users } from 'lucide-react'
-import type React from 'react'
 
 export function Features() {
   return (
