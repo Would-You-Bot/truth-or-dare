@@ -8,14 +8,14 @@ export function Features() {
     >
       <FeatureCard
         icon={<Sparkles className="h-6 w-6" />}
-        title="Dynamic Gameplay"
-        description="Experience an ever-evolving game with community-created content"
+        title="Custom Challenges"
+        description="Create and share your own truth or dare challenges, building a vibrant community of players."
         gradient="from-orange-400 to-pink-500"
       />
       <FeatureCard
         icon={<Users className="h-6 w-6" />}
         title="Social Integration"
-        description="Connect with friends and join public rooms for more fun"
+        description="Connect with friends, join public rooms, and share your favorite dares on social media."
         gradient="from-pink-500 to-purple-500"
       />
       <FeatureCard

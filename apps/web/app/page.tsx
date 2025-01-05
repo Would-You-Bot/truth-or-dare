@@ -3,11 +3,34 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { PhoneMockups } from '@/components/phone-mockups'
+import { Metadata, Viewport } from 'next'
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://truthordare.gg'),
+  title: 'Truth or Dare - Mobile App',
+  description: 'Get ready for unforgettable moments with friends through interactive questions and dares. Powered by community engagement.',
+  robots: 'index, follow',
+	publisher: 'Rivo',
+  openGraph: {
+    title: 'Truth or Dare - Mobile App',
+    description: 'Get ready for unforgettable moments with friends through interactive questions and dares. Powered by community engagement.',
+    url: 'https://truthordare.gg',
+    type: 'website',
+  }
+}
+
+export const viewport: Viewport = {
+	themeColor: '#ef5688',
+	maximumScale: 5,
+  initialScale: 1,
+  width: 'device-width',
+  height: 'device-height',
+}
+
 
 export default function TruthOrDareLanding() {
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-5" />
       <div className="flex min-h-screen flex-col">
         <div className="container mx-auto flex-grow px-4 py-8">
           <Header />

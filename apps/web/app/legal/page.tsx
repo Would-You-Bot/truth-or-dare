@@ -1,60 +1,95 @@
 import { LegalLayout } from "@/components/legal-layout";
+import Link from "next/link";
 
 export default function LegalNoticePage() {
   return (
     <LegalLayout title="Legal Notice">
-      <h2>1. Company Information</h2>
-      <p>
-        Truth or Dare App
-        <br />
-        123 Game Street
-        <br />
-        Fun City, FC 12345
-        <br />
-        contact@truthordareapp.com
-      </p>
+      <main className="flex mx-auto w-full max-w-8xl flex-col gap-8 pr-8 text-white">
+          <p>Information according to § 5 TMG.</p>
+        <div>
+          <h3 className="text-lg font-bold">Contact</h3>
+          <p className="select-none">
+            Dominik Koch
+            <br />
+            Parkstraße 5
+            <br />
+            88499 Riedlingen
+            <br />
+            Germany
+          </p>
+        </div>
+        <p>No acceptance of parcels or packages.</p>
+        <p className="select-none">Email: dominik@wouldyoubot.com</p>
+        <p className="select-none">Phone: +49 151 23793107</p>
+        <div>
+          <h3 className="text-lg font-bold">
+            Online dispute resolution
+          </h3>
+          <p>
+            The European Comission provides a platform for online dispute
+            resolution, available at{" "}
+            <Link
+              href="https://ec.europa.eu/consumers/odr/"
+              className=" underline"
+            >
+              https://ec.europa.eu/consumers/odr/
+            </Link>
+            . <br />I am neither willing nor obliged to participate in dispute
+            resolution proceedings in front of a consumer arbitration board.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold ">Privacy Policy</h3>
+          <Link
+            href="https://wouldyoubot.gg/privacy/"
+            className=" underline"
+          >
+            https://truthordare.gg/privacy/
+          </Link>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold ">
+            Validity of this Legal Notice
+          </h3>
+          <p>
+            This legal notice is valid for the following websites, social media
+            accounts and other services, as long as they are listed below.
+          </p>
+        </div>
+        <div className="">
+          <Link href="https://wouldyoubot.com/" className="underline">
+            https://wouldyoubot.com/
+          </Link>
+          <br />
+          <Link href="https://wouldyoubot.gg/" className="underline">
+            https://wouldyoubot.gg/
+          </Link>
+          <br />
 
-      <h2>2. Disclaimer</h2>
-      <p>
-        The information contained on this website is for general information
-        purposes only. While we endeavor to keep the information up to date and
-        correct, we make no representations or warranties of any kind, express
-        or implied, about the completeness, accuracy, reliability, suitability
-        or availability with respect to the website or the information,
-        products, services, or related graphics contained on the website for any
-        purpose.
-      </p>
-
-      <h2>3. Intellectual Property</h2>
-      <p>
-        All content on this website, including but not limited to text,
-        graphics, logos, button icons, images, audio clips, digital downloads,
-        data compilations, and software, is the property of Truth or Dare App or
-        its content suppliers and is protected by international copyright laws.
-      </p>
-
-      <h2>4. Governing Law</h2>
-      <p>
-        These terms and conditions are governed by and construed in accordance
-        with the laws of the State of California and you irrevocably submit to
-        the exclusive jurisdiction of the courts in that State or location.
-      </p>
-
-      <h2>5. Changes to This Notice</h2>
-      <p>
-        We may update this legal notice from time to time. When we do, we will
-        revise the updated date at the bottom of this page. We encourage users
-        to frequently check this page for any changes to stay informed about how
-        we are helping to protect the personal information we collect.
-      </p>
-
-      <h2>6. Contact Information</h2>
-      <p>
-        If you have any questions or suggestions about our Legal Notice, do not
-        hesitate to contact us at legal@truthordareapp.com.
-      </p>
-
-      <p className="mt-8 text-sm text-white/60">Last updated: June 1, 2023</p>
+          <Link href="https://rivo.gg/" className="underline">
+            https://rivo.gg/
+          </Link>
+          <br />
+          <Link href="https://truthordare.gg/" className="underline">
+            https://truthordare.gg/
+          </Link>
+          <br />
+          <Link href="https://wouldyourather.gg/" className="underline">
+            https://wouldyourather.gg/
+          </Link>
+          <br />
+          <Link href="https://twitter.com/WouldYouBot/" className="underline">
+            https://twitter.com/WouldYouBot/
+          </Link>
+        </div>
+        <p>
+          The Discord bot with the id{" "}
+          <span className="font-mono ">981649513427111957</span>
+          <br />
+          The Discord server with the id{" "}
+          <span className="font-mono ">1009562516105461780</span>
+        </p>
+      </main>
     </LegalLayout>
-  )
+  );
 }

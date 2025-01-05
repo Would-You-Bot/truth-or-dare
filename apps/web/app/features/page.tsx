@@ -7,18 +7,12 @@ import { ArrowRight, Gift, Shield, Sparkles, Users, Zap } from 'lucide-react'
 export default function FeaturesPage() {
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-5" />
       <div className="flex min-h-screen flex-col">
         <div className="container mx-auto flex-grow px-4 py-8">
           <Header />
           <main className="mt-16">
             <h1 className="mb-8 font-bold text-4xl text-white">Features</h1>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <FeatureCard
-                icon={<Sparkles className="h-6 w-6" />}
-                title="Dynamic Gameplay"
-                description="Experience an ever-evolving game with community-created content and AI-generated challenges."
-              />
               <FeatureCard
                 icon={<Users className="h-6 w-6" />}
                 title="Social Integration"

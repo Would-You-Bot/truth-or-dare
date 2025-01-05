@@ -2,11 +2,11 @@ import { randomUUID } from 'node:crypto'
 import Image from 'next/image'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import Link from 'next/link'
 
 export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-5" />
       <div className="container mx-auto flex-grow px-4 py-8">
         <Header />
         <main className="mt-16">
@@ -47,26 +47,30 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {[
                 {
-                  role: 'CEO',
+                  role: 'CEO & Lead Developer',
+                  link: "https://rivo.gg",
                   image:
-                    'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'
+                    'https://cdn.wouldyoubot.gg/staff/developer/Dominik.webp'
                 },
                 {
-                  role: 'CTO',
+                  role: 'Developer',
+                  link: "https://woofer21.com",
                   image:
-                    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80'
+                    'https://cdn.wouldyoubot.gg/staff/developer/Woofer.webp'
                 },
                 {
-                  role: 'Head of Design',
+                  role: 'Developer',
+                  link: "https://www.dpaulos6.com/",
                   image:
-                    'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1361&q=80'
+                    'https://cdn.wouldyoubot.gg/staff/developer/Paulos.webp'
                 },
                 {
-                  role: 'Community Manager',
+                  role: 'Developer',
+                  link: "https://taqib.dev",
                   image:
-                    'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80'
+                    'https://cdn.wouldyoubot.gg/staff/developer/Taqib.webp'
                 }
-              ].map(({ role, image }) => (
+              ].map(({ role, image, link }) => (
                 <div
                   key={randomUUID()}
                   className="text-center"
@@ -80,7 +84,7 @@ export default function AboutPage() {
                       objectFit="cover"
                     />
                   </div>
-                  <h3 className="font-semibold text-white">{role}</h3>
+                  <Link href={link} target="_blank" className="hover:cursor-pointer font-semibold text-white">{role}</Link>
                 </div>
               ))}
             </div>
