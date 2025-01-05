@@ -29,7 +29,7 @@ export function Hero() {
           href="/about"
           className="rounded-full bg-purple-700 px-8 py-3 text-center font-semibold text-white backdrop-blur-sm transition hover:bg-purple-800"
         >
-          Learn More
+          About Us
         </Link>
       </div>
     </div>
