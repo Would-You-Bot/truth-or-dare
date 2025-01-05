@@ -41,7 +41,7 @@ export default function LegalNoticePage() {
         <div>
           <h3 className="text-lg font-bold ">Privacy Policy</h3>
           <Link
-            href="https://wouldyoubot.gg/privacy/"
+            href="https://truthordare.gg/privacy/"
             className=" underline"
           >
             https://truthordare.gg/privacy/
