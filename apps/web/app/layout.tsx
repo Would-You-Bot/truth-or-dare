@@ -26,6 +26,11 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
+        <script
+					defer
+					data-domain="truthordare.gg"
+					src="https://stats.wouldyoubot.gg/js/script.js"
+				/>
         <Providers>{children}</Providers>
       </body>
     </html>
