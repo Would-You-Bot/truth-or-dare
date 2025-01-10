@@ -3,30 +3,31 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { PhoneMockups } from '@/components/phone-mockups'
-import { Metadata, Viewport } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://truthordare.gg'),
   title: 'Truth or Dare - Mobile App',
-  description: 'Get ready for unforgettable moments with friends through interactive questions and dares. Powered by community engagement.',
+  description:
+    'Get ready for unforgettable moments with friends through interactive questions and dares. Powered by community engagement.',
   robots: 'index, follow',
-	publisher: 'Rivo',
+  publisher: 'Rivo',
   openGraph: {
     title: 'Truth or Dare - Mobile App',
-    description: 'Get ready for unforgettable moments with friends through interactive questions and dares. Powered by community engagement.',
+    description:
+      'Get ready for unforgettable moments with friends through interactive questions and dares. Powered by community engagement.',
     url: 'https://truthordare.gg',
-    type: 'website',
+    type: 'website'
   }
 }
 
 export const viewport: Viewport = {
-	themeColor: '#ef5688',
-	maximumScale: 5,
+  themeColor: '#ef5688',
+  maximumScale: 5,
   initialScale: 1,
   width: 'device-width',
-  height: 'device-height',
+  height: 'device-height'
 }
-
 
 export default function TruthOrDareLanding() {
   return (

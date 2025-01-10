@@ -1,42 +1,42 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://truthordare.gg",
+      url: 'https://truthordare.gg',
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
+      changeFrequency: 'weekly',
+      priority: 1
     },
     {
-      url: "https://truthordare.gg/features",
+      url: 'https://truthordare.gg/features',
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
+      changeFrequency: 'weekly',
+      priority: 1
     },
     {
-      url: "https://truthordare.gg/about",
+      url: 'https://truthordare.gg/about',
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
+      changeFrequency: 'weekly',
+      priority: 1
     },
     {
-      url: "https://truthordare.gg/privacy",
+      url: 'https://truthordare.gg/privacy',
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.7,
+      changeFrequency: 'yearly',
+      priority: 0.7
     },
     {
-      url: "https://truthordare.gg/legal",
+      url: 'https://truthordare.gg/legal',
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
+      changeFrequency: 'yearly',
+      priority: 0.5
     },
     {
-      url: "https://truthordare.gg/terms",
+      url: 'https://truthordare.gg/terms',
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-  ];
+      changeFrequency: 'yearly',
+      priority: 0.5
+    }
+  ]
 }

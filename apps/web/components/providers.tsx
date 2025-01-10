@@ -2,6 +2,7 @@
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import type * as React from 'react'
+import { Toaster } from 'sonner'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +14,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableColorScheme
     >
       {children}
+      <Toaster
+        richColors
+        closeButton
+      />
     </NextThemesProvider>
   )
 }

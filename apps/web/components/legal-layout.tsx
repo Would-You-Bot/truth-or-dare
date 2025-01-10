@@ -1,5 +1,5 @@
-import { Footer } from "./Footer"
-import { Header } from "./Header"
+import { Footer } from './Footer'
+import { Header } from './Header'
 
 interface LegalLayoutProps {
   children: React.ReactNode
@@ -8,10 +8,13 @@ interface LegalLayoutProps {
 
 export function LegalLayout({ children, title }: LegalLayoutProps) {
   return (
-     <><script
-      defer
-      data-domain="truthordare.gg"
-      src="https://stats.wouldyoubot.gg/js/script.js" /><div className="flex min-h-screen flex-col bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
+    <>
+      <script
+        defer
+        data-domain="truthordare.gg"
+        src="https://stats.wouldyoubot.gg/js/script.js"
+      />
+      <div className="flex min-h-screen flex-col bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
         <div className="container mx-auto flex-grow px-4 py-8">
           <Header />
           <main className="mt-12 mb-20">
@@ -24,6 +27,7 @@ export function LegalLayout({ children, title }: LegalLayoutProps) {
           </main>
         </div>
         <Footer />
-      </div></>
+      </div>
+    </>
   )
 }

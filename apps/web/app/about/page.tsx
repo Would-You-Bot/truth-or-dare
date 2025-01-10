@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
-import Image from 'next/image'
-import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function AboutPage() {
@@ -48,27 +48,26 @@ export default function AboutPage() {
               {[
                 {
                   role: 'CEO & Lead Developer',
-                  link: "https://rivo.gg",
+                  link: 'https://rivo.gg',
                   image:
                     'https://cdn.wouldyoubot.gg/staff/developer/Dominik.webp'
                 },
                 {
                   role: 'Developer',
-                  link: "https://woofer21.com",
+                  link: 'https://woofer21.com',
                   image:
                     'https://cdn.wouldyoubot.gg/staff/developer/Woofer.webp'
                 },
                 {
                   role: 'Developer',
-                  link: "https://www.dpaulos6.com/",
+                  link: 'https://www.dpaulos6.com/',
                   image:
                     'https://cdn.wouldyoubot.gg/staff/developer/Paulos.webp'
                 },
                 {
                   role: 'Developer',
-                  link: "https://taqib.dev",
-                  image:
-                    'https://cdn.wouldyoubot.gg/staff/developer/Taqib.webp'
+                  link: 'https://taqib.dev',
+                  image: 'https://cdn.wouldyoubot.gg/staff/developer/Taqib.webp'
                 }
               ].map(({ role, image, link }) => (
                 <div
@@ -84,7 +83,13 @@ export default function AboutPage() {
                       objectFit="cover"
                     />
                   </div>
-                  <Link href={link} target="_blank" className="hover:cursor-pointer font-semibold text-white">{role}</Link>
+                  <Link
+                    href={link}
+                    target="_blank"
+                    className="font-semibold text-white hover:cursor-pointer"
+                  >
+                    {role}
+                  </Link>
                 </div>
               ))}
             </div>
