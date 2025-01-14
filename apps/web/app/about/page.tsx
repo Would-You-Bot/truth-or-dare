@@ -21,7 +21,7 @@ export default function AboutPage() {
                 meaningful conversations, and create unforgettable moments.
               </p>
               <p className="text-lg">
-                Founded in 2023 by a group of friends who wanted to reimagine
+                Founded in 2025 by a group of friends who wanted to reimagine
                 the classic game for the digital age, Truth or Dare has quickly
                 grown into a global phenomenon, connecting millions of players
                 worldwide.
