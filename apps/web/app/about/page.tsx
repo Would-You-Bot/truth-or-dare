@@ -90,7 +90,7 @@ export default function AboutPage() {
                     {name}
                   </Link>
                   <div
-                    className="hover:cursor-pointer font-semibold text-white"
+                    className="font-semibold text-white"
                   >
                     {role}
                   </div>
