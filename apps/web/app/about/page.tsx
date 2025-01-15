@@ -85,16 +85,15 @@ export default function AboutPage() {
                       objectFit="cover"
                     />
                   </div>
-                  <div className="mb-2 text-lg font-bold text-white">
+                  <Link href={link}
+                    target="_blank" className="mb-2 text-lg font-bold text-white hover:cursor-pointer">
                     {name}
-                  </div>
-                  <Link
-                    href={link}
-                    target="_blank"
+                  </Link>
+                  <div
                     className="hover:cursor-pointer font-semibold text-white"
                   >
                     {role}
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>
