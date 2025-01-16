@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model WhitelistWeb {
+model WaitlistWeb {
   id         String   @id @default(cuid())
   email      String   @unique
   isVerified Boolean
@@ -21,7 +21,7 @@ model WhitelistWeb {
   updatedAt  DateTime @updatedAt
 }
 
-model WhitelistMobile {
+model WaitlistMobile {
   id         String   @id @default(cuid())
   email      String   @unique
   isVerified Boolean
