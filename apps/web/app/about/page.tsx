@@ -1,8 +1,8 @@
-import { randomUUID } from 'node:crypto'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
-import Image from 'next/image'
-import Link from 'next/link'
+import { randomUUID } from "node:crypto";
+import Image from "next/image";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -21,7 +21,7 @@ export default function AboutPage() {
                 meaningful conversations, and create unforgettable moments.
               </p>
               <p className="text-lg">
-                Founded in 2023 by a group of friends who wanted to reimagine
+                Founded in 2025 by a group of friends who wanted to reimagine
                 the classic game for the digital age, Truth or Dare has quickly
                 grown into a global phenomenon, connecting millions of players
                 worldwide.
@@ -47,33 +47,35 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {[
                 {
-                  role: 'CEO & Lead Developer',
-                  link: 'https://rivo.gg',
+                  name: "Dominik",
+                  role: "CEO & Lead Developer",
+                  link: "https://rivo.gg",
                   image:
-                    'https://cdn.wouldyoubot.gg/staff/developer/Dominik.webp'
+                    "https://cdn.wouldyoubot.gg/staff/developer/Dominik.webp",
                 },
                 {
-                  role: 'Developer',
-                  link: 'https://woofer21.com',
+                  name: "Woofer",
+                  role: "Developer",
+                  link: "https://woofer21.com",
                   image:
-                    'https://cdn.wouldyoubot.gg/staff/developer/Woofer.webp'
+                    "https://cdn.wouldyoubot.gg/staff/developer/Woofer.webp",
                 },
                 {
-                  role: 'Developer',
-                  link: 'https://www.dpaulos6.com/',
+                  name: "Paulos",
+                  role: "Developer",
+                  link: "https://www.dpaulos6.com/",
                   image:
-                    'https://cdn.wouldyoubot.gg/staff/developer/Paulos.webp'
+                    "https://cdn.wouldyoubot.gg/staff/developer/Paulos.webp",
                 },
                 {
-                  role: 'Developer',
-                  link: 'https://taqib.dev',
-                  image: 'https://cdn.wouldyoubot.gg/staff/developer/Taqib.webp'
-                }
-              ].map(({ role, image, link }) => (
-                <div
-                  key={randomUUID()}
-                  className="text-center"
-                >
+                  name: "Taqib",
+                  role: "Developer",
+                  link: "https://taqib.dev",
+                  image:
+                    "https://cdn.wouldyoubot.gg/staff/developer/Taqib.webp",
+                },
+              ].map(({ name, role, image, link }) => (
+                <div key={randomUUID()} className="text-center">
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full bg-white/20">
                     <Image
                       src={image}
@@ -83,13 +85,15 @@ export default function AboutPage() {
                       objectFit="cover"
                     />
                   </div>
-                  <Link
-                    href={link}
-                    target="_blank"
-                    className="font-semibold text-white hover:cursor-pointer"
+                  <Link href={link}
+                    target="_blank" className="mb-2 text-lg font-bold text-white hover:cursor-pointer">
+                    {name}
+                  </Link>
+                  <div
+                    className="font-semibold text-white"
                   >
                     {role}
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>
@@ -98,5 +102,5 @@ export default function AboutPage() {
       </div>
       <Footer />
     </div>
-  )
+  );
 }
