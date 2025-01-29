@@ -1,8 +1,8 @@
-import { randomUUID } from "node:crypto";
-import Image from "next/image";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import Link from "next/link";
+import { randomUUID } from 'node:crypto'
+import Image from 'next/image'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import Link from 'next/link'
 
 export default function AboutPage() {
   return (
@@ -47,35 +47,37 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
               {[
                 {
-                  name: "Dominik",
-                  role: "CEO & Lead Developer",
-                  link: "https://rivo.gg",
+                  name: 'Dominik',
+                  role: 'CEO & Lead Developer',
+                  link: 'https://rivo.gg',
                   image:
-                    "https://cdn.wouldyoubot.gg/staff/developer/Dominik.webp",
+                    'https://cdn.wouldyoubot.gg/staff/developer/Dominik.webp'
                 },
                 {
-                  name: "Woofer",
-                  role: "Developer",
-                  link: "https://woofer21.com",
+                  name: 'Woofer',
+                  role: 'Developer',
+                  link: 'https://woofer21.com',
                   image:
-                    "https://cdn.wouldyoubot.gg/staff/developer/Woofer.webp",
+                    'https://cdn.wouldyoubot.gg/staff/developer/Woofer.webp'
                 },
                 {
-                  name: "Paulos",
-                  role: "Developer",
-                  link: "https://www.dpaulos6.com/",
+                  name: 'Paulos',
+                  role: 'Developer',
+                  link: 'https://www.dpaulos6.com/',
                   image:
-                    "https://cdn.wouldyoubot.gg/staff/developer/Paulos.webp",
+                    'https://cdn.wouldyoubot.gg/staff/developer/Paulos.webp'
                 },
                 {
-                  name: "Taqib",
-                  role: "Developer",
-                  link: "https://taqib.dev",
-                  image:
-                    "https://cdn.wouldyoubot.gg/staff/developer/Taqib.webp",
-                },
+                  name: 'Taqib',
+                  role: 'Developer',
+                  link: 'https://taqib.dev',
+                  image: 'https://cdn.wouldyoubot.gg/staff/developer/Taqib.webp'
+                }
               ].map(({ name, role, image, link }) => (
-                <div key={randomUUID()} className="text-center">
+                <div
+                  key={randomUUID()}
+                  className="text-center"
+                >
                   <div className="mx-auto mb-4 h-32 w-32 overflow-hidden rounded-full bg-white/20">
                     <Image
                       src={image}
@@ -85,15 +87,14 @@ export default function AboutPage() {
                       objectFit="cover"
                     />
                   </div>
-                  <Link href={link}
-                    target="_blank" className="mb-2 text-lg font-bold text-white hover:cursor-pointer">
+                  <Link
+                    href={link}
+                    target="_blank"
+                    className="mb-2 font-bold text-lg text-white hover:cursor-pointer"
+                  >
                     {name}
                   </Link>
-                  <div
-                    className="font-semibold text-white"
-                  >
-                    {role}
-                  </div>
+                  <div className="font-semibold text-white">{role}</div>
                 </div>
               ))}
             </div>
@@ -102,5 +103,5 @@ export default function AboutPage() {
       </div>
       <Footer />
     </div>
-  );
+  )
 }
