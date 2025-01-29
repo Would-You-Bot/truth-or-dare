@@ -1,9 +1,20 @@
 import { sendBatchEmails } from '@/hooks/resend'
-import type { SendBatchEmailProps } from '@/types/resend'
+import { EmailSchema } from '@/types/emails'
+import type { BatchEmailProps } from '@/types/emails'
 
 export async function POST(req: Request) {
   try {
-    const emails: SendBatchEmailProps[] = await req.json()
+    const emails: BatchEmailProps[] = await req.json()
+
+    emails.map((email) => {
+      const result = EmailSchema.safeParse({ email })
+
+      if (!result.success) {
+        return new Response(JSON.stringify(result.error.errors[0].message), {
+          status: 500
+        })
+      }
+    })
 
     const emailsWithText = emails.map((email) => ({
       ...email,

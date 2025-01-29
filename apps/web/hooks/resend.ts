@@ -1,7 +1,7 @@
 'use server'
 
 import { ResendClient } from '@/helpers/resend'
-import type { EmailProps, BatchEmailProps } from '@/types/emails'
+import type { BatchEmailProps, EmailProps } from '@/types/emails'
 
 const resend = ResendClient()
 
@@ -51,7 +51,7 @@ export const sendEmail = async ({ ...props }: EmailProps): Promise<object> => {
  * @returns {Promise<Object[]>} The responses from the email sending service for each email.
  * @throws {Error} If any of the emails fail to send.
  */
-export const sendBatchEmailPropss = async (
+export const sendBatchEmails = async (
   emails: BatchEmailProps[]
 ): Promise<object> => {
   try {

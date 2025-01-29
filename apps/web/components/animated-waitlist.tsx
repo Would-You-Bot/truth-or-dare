@@ -7,6 +7,12 @@ import { motion } from "motion/react";
 import { type FormEvent, useState } from "react";
 import { toast } from "sonner";
 
+const spring = {
+	type: "spring",
+	stiffness: 500,
+	damping: 30,
+};
+
 export default function AnimatedWaitlist() {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [email, setEmail] = useState("");
@@ -64,12 +70,8 @@ export default function AnimatedWaitlist() {
 				<motion.div
 					layout
 					animate={{
-						width: isExpanded ? 300 : 140,
-						transition: {
-							type: "spring",
-							stiffness: 500,
-							damping: 30,
-						},
+						width: isExpanded ? 300 : 137.5,
+						transition: spring,
 					}}
 					className="flex items-center overflow-hidden rounded-full bg-white p-1"
 				>
@@ -98,11 +100,18 @@ export default function AnimatedWaitlist() {
 								/>
 							</motion.div>
 							<Button
+								asChild
 								type="submit"
 								className="h-9 w-9 flex-shrink-0 rounded-full bg-purple-600 text-white transition-colors hover:bg-purple-700"
 							>
-								<ArrowRight className="h-5 w-5" />
-								<span className="sr-only">Submit</span>
+								<motion.button
+									initial={{ scale: 0 }}
+									animate={{ scale: 1 }}
+									transition={{ ...spring, delay: 0.05 }}
+								>
+									<ArrowRight className="h-5 w-5" />
+									<span className="sr-only">Submit</span>
+								</motion.button>
 							</Button>
 						</motion.form>
 					) : (
