@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node --loader ts-node/esm --experimental-specifier-resolution=node ./server/index.ts",
     "build": "next build",
-    "start": "NODE_ENV=production node --loader ts-node/esm --experimental-specifier-resolution=node ./server/index.ts",
+    "start": "cross-env NODE_ENV=production node --loader ts-node/esm --experimental-specifier-resolution=node ./server/index.ts",
     "lint": "next lint",
     "format": "biome format . --write --config-path=./biome.json",
     "prisma:generate": "prisma generate",
@@ -51,6 +51,7 @@
     "@types/node-cron": "^3.0.11",
     "@types/react": "19.0.4",
     "@types/react-dom": "19.0.2",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.49",
     "prisma": "6.2.1",
     "react-email": "3.0.6",
