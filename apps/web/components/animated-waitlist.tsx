@@ -1,13 +1,13 @@
 'use client'
 
+import { LoadingWaitlist } from '@/components/loading-waitlist'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ArrowRight, CircleCheckBig } from 'lucide-react'
 import { motion } from 'motion/react'
 import { type FormEvent, type KeyboardEvent, useState } from 'react'
-import { toast } from 'sonner'
-import { LoadingWaitlist } from '@/components/loading-waitlist'
 import Turnstile from 'react-turnstile'
+import { toast } from 'sonner'
 
 const spring = {
   type: 'spring',

@@ -1,9 +1,9 @@
+import { log } from 'node:console'
 import { createServer } from 'node:http'
 import { parse } from 'node:url'
+import chalk from 'chalk'
 import next from 'next'
 import * as jobs from './jobs'
-import { log } from 'node:console'
-import chalk from 'chalk'
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })

@@ -24,7 +24,7 @@ import Link from 'next/link'
 import { type ReactNode, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { set, z } from 'zod'
+import { z } from 'zod'
 
 const formSchema = z.object({
   email: z.string().email()
