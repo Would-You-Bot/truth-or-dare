@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+::selection {
+  @apply bg-purple-600/50 text-white;
+}

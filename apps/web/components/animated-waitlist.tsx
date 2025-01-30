@@ -6,7 +6,8 @@ import { ArrowRight, CircleCheckBig } from 'lucide-react'
 import { motion } from 'motion/react'
 import { type FormEvent, type KeyboardEvent, useState } from 'react'
 import { toast } from 'sonner'
-import { LoadingWaitlist } from './loading-waitlist'
+import { LoadingWaitlist } from '@/components/loading-waitlist'
+import Turnstile from 'react-turnstile'
 
 const spring = {
   type: 'spring',
@@ -18,9 +19,17 @@ export default function AnimatedWaitlist() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
+  const [isVerified, setIsVerified] = useState(false)
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+
+    if (!isVerified) {
+      toast.error(
+        'Unable to verify if you are a human.\nPlease refresh the page and try again.'
+      )
+      return
+    }
 
     try {
       setLoading(true)
@@ -91,6 +100,15 @@ export default function AnimatedWaitlist() {
               className="flex flex-grow items-center gap-1"
               onSubmit={handleSubmit}
             >
+              <Turnstile
+                sitekey="0x4AAAAAAA61SwGZcaOFvmB_"
+                action="verify"
+                cData="verifyLegitUser"
+                size="invisible"
+                appearance="execute"
+                onLoad={(_, bound) => bound.execute()}
+                onVerify={() => setIsVerified(true)}
+              />
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

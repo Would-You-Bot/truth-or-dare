@@ -1,4 +1,6 @@
+import { EmailConfirmed } from '@/components/email-confirmed'
 import { prisma } from '@/helpers/prisma'
+import ReactDOMServer from 'react-dom/server'
 
 export async function GET(req: Request) {
   const url = new URL(req.url)
@@ -39,20 +41,14 @@ export async function GET(req: Request) {
       )
     }
 
-    return new Response(
-      `<html>
-        <body>
-          <h1>Email successfully confirmed!</h1>
-          <script>
-            window.close();
-          </script>
-        </body>
-      </html>`,
-      {
-        status: 200,
-        headers: { 'Content-Type': 'text/html' }
-      }
+    const html = ReactDOMServer.renderToString(
+      EmailConfirmed({ email: updatedUser.email })
     )
+
+    return new Response(html, {
+      status: 200,
+      headers: { 'Content-Type': 'text/html' }
+    })
   } catch (error) {
     return new Response(
       JSON.stringify({
