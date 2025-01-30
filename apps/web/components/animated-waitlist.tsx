@@ -42,7 +42,7 @@ export default function AnimatedWaitlist() {
         description:
           'Check your inbox and confirm your email to actually join the waitlist.',
         duration: 5000,
-        icon: <CircleCheckBig className="size-5 mr-2" />
+        icon: <CircleCheckBig className="mr-2 size-5" />
       })
       setEmail('')
       setIsExpanded(false)
@@ -97,7 +97,7 @@ export default function AnimatedWaitlist() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onKeyDown={(e) => handleKey(e)}
-                  className="h-9 border-none rounded-full bg-transparent px-4 text-purple-600 placeholder:text-purple-400 focus:ring-0 focus-visible:ring-0"
+                  className="h-9 rounded-full border-none bg-transparent px-4 text-purple-600 placeholder:text-purple-400 focus:ring-0 focus-visible:ring-0"
                   autoFocus
                   required
                 />
@@ -123,7 +123,7 @@ export default function AnimatedWaitlist() {
               onClick={() => setIsExpanded(true)}
               initial={{ opacity: 100, x: 0 }}
               animate={{ opacity: 1, x: 0 }}
-              className="h-9 whitespace-nowrap rounded-full bg-white px-6 text-sm font-medium text-purple-600 transition-colors hover:bg-white/90"
+              className="h-9 whitespace-nowrap rounded-full bg-white px-6 font-medium text-purple-600 text-sm transition-colors hover:bg-white/90"
             >
               Join Waitlist
             </motion.button>
