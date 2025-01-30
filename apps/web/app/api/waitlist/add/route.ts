@@ -3,7 +3,7 @@ import { ConfirmEmail } from '@/emails/confirmation'
 import { prisma } from '@/helpers/prisma'
 import { sendEmail } from '@/hooks/resend'
 import { render } from '@react-email/render'
-import React, { createElement } from 'react'
+import { createElement } from 'react'
 
 export async function POST(req: Request) {
   if (req.method !== 'POST') {
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
         to: body.email,
         from: confirmEmailData.from,
         subject: confirmEmailData.subject,
-        email: await render(createElement(ConfirmEmail, { email: body.email }))
+        email: await render(createElement(ConfirmEmail, { id: newEntry.id }))
       })
 
       if (!emailSent) {

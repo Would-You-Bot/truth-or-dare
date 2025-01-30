@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react'
 import { motion } from 'motion/react'
 import { type FormEvent, type KeyboardEvent, useRef, useState } from 'react'
 import { toast } from 'sonner'
-import Turnstile, { type BoundTurnstileObject } from 'react-turnstile'
+import PulsatingDots from './pulsating-dots'
 
 const spring = {
   type: 'spring',
@@ -16,11 +16,7 @@ const spring = {
 
 export default function AnimatedWaitlist() {
   const [email, setEmail] = useState('')
-  const [token, setToken] = useState<string | null>(null)
-  const [isExpanded, setIsExpanded] = useState(false)
-  // biome-ignore lint/style/noNonNullAssertion: <explanation>
-  const turnstileElementRef = useRef<HTMLDivElement>(null!)
-  const turnstileInstanceRef = useRef<BoundTurnstileObject | null>(null)
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
@@ -34,30 +30,8 @@ export default function AnimatedWaitlist() {
     setToken(null)
 
     try {
-      // Verify Turnstile token
-      const turnstileResponse = await fetch('/api/captcha', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ token })
-      })
-
-      if (!turnstileResponse.ok) {
-        toast.error('Failed to verify captcha')
-        setToken(null)
-        return
-      }
-
-      const turnstileData = await turnstileResponse.json()
-      if (!turnstileData.success) {
-        toast.error('Captcha verification failed')
-        setToken(null)
-        return
-      }
-
-      // Add email to waitlist
-      const waitlistResponse = await fetch('/api/waitlist/add', {
+      setLoading(true)
+      const response = await fetch('/api/waitlist/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -67,18 +41,34 @@ export default function AnimatedWaitlist() {
 
       if (waitlistResponse.status === 400) {
         toast.error('Email is already in the waitlist')
+        setLoading(false)
         return
       }
 
-      if (!waitlistResponse.ok) {
+      if (!response.ok) {
+        setLoading(false)
         toast.error('Failed to add email to waitlist')
-        return
       }
 
-      toast.success('Email added to waitlist successfully')
+      toast.success('Email successfully registered to the waitlist!', {
+        description:
+          'Check your inbox and confirm your email to actually join the waitlist.',
+        duration: 5000,
+        icon: <CircleCheckBig className="mr-2 size-5" />
+      })
       setEmail('')
-    } catch (_error) {
-      toast.error('An unexpected error occurred')
+      setIsExpanded(false)
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      toast.error(
+        'An error occurred while adding your email to the waitlist. Please try again later.'
+      )
+      throw new Error(
+        error instanceof Error
+          ? error.message
+          : 'Failed to add email to waitlist'
+      )
     }
   }
 
@@ -106,7 +96,8 @@ export default function AnimatedWaitlist() {
           }}
           className="flex items-center overflow-hidden rounded-full bg-white p-1"
         >
-          {isExpanded ? (
+          {loading && <PulsatingDots />}
+          {!loading && isExpanded && (
             <motion.form
               layout
               className="flex flex-grow items-center gap-1"
@@ -157,7 +148,8 @@ export default function AnimatedWaitlist() {
                 </motion.button>
               </Button>
             </motion.form>
-          ) : (
+          )}
+          {!loading && !isExpanded && (
             <motion.button
               layout
               onClick={() => setIsExpanded(true)}

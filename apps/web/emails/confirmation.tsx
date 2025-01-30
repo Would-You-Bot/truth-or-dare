@@ -1,11 +1,11 @@
 import { Button, Section, Text } from '@react-email/components'
 
-export function ConfirmEmail({ email }: { email: string }) {
-  if (!email) {
-    throw new Error('Email is required')
+export function ConfirmEmail({ id }: { id: string }) {
+  if (!id) {
+    throw new Error('ID is required')
   }
 
-  const url = `http://localhost:3000/api/emails/confirm?email=${email}`
+  const url = `http://localhost:3000/api/emails/confirm?id=${id}`
 
   return (
     <Section>

@@ -2,10 +2,10 @@ import { prisma } from '@/helpers/prisma'
 
 export async function GET(req: Request) {
   const url = new URL(req.url)
-  const email = url.searchParams.get('email')
+  const id = url.searchParams.get('id')
 
-  if (!email) {
-    return new Response(JSON.stringify({ error: 'Email is required' }), {
+  if (!id) {
+    return new Response(JSON.stringify({ error: 'ID is required' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' }
     })
@@ -14,18 +14,18 @@ export async function GET(req: Request) {
   try {
     // Check if the email exists in the database
     const user = await prisma.waitlistWeb.findUnique({
-      where: { email }
+      where: { id }
     })
 
     if (!user) {
-      return new Response(JSON.stringify({ error: 'Email not found' }), {
+      return new Response(JSON.stringify({ error: 'ID not found' }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' }
       })
     }
 
     const updatedUser = await prisma.waitlistWeb.update({
-      where: { email },
+      where: { id },
       data: { isVerified: true }
     })
 
