@@ -1,5 +1,4 @@
 import { prisma } from '../../helpers/prisma'
-import { log } from 'node:console'
 
 export async function deleteUnconfirmedUsers() {
   const time = 15 // minutes
@@ -14,7 +13,6 @@ export async function deleteUnconfirmedUsers() {
         }
       }
     })
-    log('Unconfirmed users deleted successfully')
   } catch (error) {
     throw new Error(
       `Error deleting unconfirmed users: ${JSON.stringify(error, null, 2)}`
