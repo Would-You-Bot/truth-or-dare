@@ -2,11 +2,11 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, CircleCheckBig } from 'lucide-react'
 import { motion } from 'motion/react'
-import { type FormEvent, type KeyboardEvent, useRef, useState } from 'react'
+import { type FormEvent, type KeyboardEvent, useState } from 'react'
 import { toast } from 'sonner'
-import PulsatingDots from './pulsating-dots'
+import { LoadingWaitlist } from './loading-waitlist'
 
 const spring = {
   type: 'spring',
@@ -15,19 +15,12 @@ const spring = {
 }
 
 export default function AnimatedWaitlist() {
+  const [isExpanded, setIsExpanded] = useState(false)
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
-
-    if (!token) {
-      turnstileInstanceRef.current?.reset()
-      turnstileInstanceRef.current?.execute()
-      return
-    }
-
-    setToken(null)
 
     try {
       setLoading(true)
@@ -38,12 +31,6 @@ export default function AnimatedWaitlist() {
         },
         body: JSON.stringify({ email })
       })
-
-      if (waitlistResponse.status === 400) {
-        toast.error('Email is already in the waitlist')
-        setLoading(false)
-        return
-      }
 
       if (!response.ok) {
         setLoading(false)
@@ -96,25 +83,14 @@ export default function AnimatedWaitlist() {
           }}
           className="flex items-center overflow-hidden rounded-full bg-white p-1"
         >
-          {loading && <PulsatingDots />}
+          {loading && <LoadingWaitlist />}
           {!loading && isExpanded && (
             <motion.form
               layout
+              layoutId="waitlist-form"
               className="flex flex-grow items-center gap-1"
               onSubmit={handleSubmit}
             >
-              <Turnstile
-                userRef={turnstileElementRef}
-                onLoad={(
-                  _widgetId: string,
-                  boundTurnstile: BoundTurnstileObject
-                  // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-                ) => (turnstileInstanceRef.current = boundTurnstile)}
-                sitekey="0x4AAAAAAA61SwGZcaOFvmB_"
-                onVerify={(token) => setToken(token)}
-                size="invisible"
-              />
-
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -128,7 +104,7 @@ export default function AnimatedWaitlist() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onKeyDown={(e) => handleKey(e)}
-                  className="h-9 rounded-full border-none bg-transparent px-4 text-purple-600 placeholder:text-purple-400 focus:ring-0 focus-visible:ring-0"
+                  className="h-9 rounded-full border-none bg-transparent px-4 text-purple-600 shadow-none placeholder:text-purple-400 focus:ring-0 focus-visible:ring-0"
                   autoFocus
                   required
                 />
