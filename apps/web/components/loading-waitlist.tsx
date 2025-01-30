@@ -34,7 +34,7 @@ export function LoadingWaitlist() {
         className="flex gap-2"
       >
         <motion.div
-          className="size-2.5 rounded-full bg-purple-600"
+          className="size-2 rounded-full bg-purple-600"
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.5, 1, 0.5]
@@ -46,7 +46,7 @@ export function LoadingWaitlist() {
           }}
         />
         <motion.div
-          className="size-2.5 rounded-full bg-purple-600"
+          className="size-2 rounded-full bg-purple-600"
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.5, 1, 0.5]
@@ -59,7 +59,7 @@ export function LoadingWaitlist() {
           }}
         />
         <motion.div
-          className="size-2.5 rounded-full bg-purple-600"
+          className="size-2 rounded-full bg-purple-600"
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.5, 1, 0.5]
