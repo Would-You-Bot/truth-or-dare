@@ -6,6 +6,7 @@ import { ArrowRight, CircleCheckBig } from 'lucide-react'
 import { motion } from 'motion/react'
 import { type FormEvent, useState } from 'react'
 import { toast } from 'sonner'
+import PulsatingDots from './pulsating-dots'
 
 const spring = {
   type: 'spring',
@@ -16,11 +17,13 @@ const spring = {
 export default function AnimatedWaitlist() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
 
     try {
+      setLoading(true)
       const response = await fetch('/api/waitlist/add', {
         method: 'POST',
         headers: {
@@ -31,11 +34,13 @@ export default function AnimatedWaitlist() {
 
       if (response.status === 400) {
         toast.error('Email is already in the waitlist')
+        setLoading(false)
         return
       }
 
       if (!response.ok) {
-        throw new Error('Failed to add email to waitlist')
+        setLoading(false)
+        toast.error('Failed to add email to waitlist')
       }
 
       toast.success('Email successfully registered to the waitlist!', {
@@ -46,7 +51,12 @@ export default function AnimatedWaitlist() {
       })
       setEmail('')
       setIsExpanded(false)
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
+      toast.error(
+        'An error occurred while adding your email to the waitlist. Please try again later.'
+      )
       throw new Error(
         error instanceof Error
           ? error.message
@@ -78,7 +88,8 @@ export default function AnimatedWaitlist() {
           }}
           className="flex items-center overflow-hidden rounded-full bg-white p-1"
         >
-          {isExpanded ? (
+          {loading && <PulsatingDots />}
+          {!loading && isExpanded && (
             <motion.form
               layout
               className="flex flex-grow items-center gap-1"
@@ -117,7 +128,8 @@ export default function AnimatedWaitlist() {
                 </motion.button>
               </Button>
             </motion.form>
-          ) : (
+          )}
+          {!loading && !isExpanded && (
             <motion.button
               layout
               onClick={() => setIsExpanded(true)}

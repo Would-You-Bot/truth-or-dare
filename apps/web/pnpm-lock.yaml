@@ -4768,11 +4768,6 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.0.4
 
-  react-turnstile@1.1.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
-    dependencies:
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-
   react@19.0.0: {}
 
   read-cache@1.0.0:
