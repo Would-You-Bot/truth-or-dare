@@ -2,6 +2,8 @@ import { createServer } from 'node:http'
 import { parse } from 'node:url'
 import next from 'next'
 import * as jobs from './jobs'
+import { log } from 'node:console'
+import chalk from 'chalk'
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -11,13 +13,15 @@ for (const job of Object.values(jobs)) {
   job.start()
 }
 
+const baseUrl = process.env.BASE_URL || 'http://localhost:3000'
+
 app.prepare().then(() => {
   createServer((req, res) => {
     const parsedUrl = parse(String(req.url), true)
     handle(req, res, parsedUrl)
   })
     .listen(3000, () => {
-      console.log('> Ready on http://localhost:3000')
+      log(chalk.green(`Ready on ${baseUrl}`))
     })
     .on('error', (err: Error) => {
       throw err
