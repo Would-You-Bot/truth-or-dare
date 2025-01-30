@@ -25,7 +25,7 @@ export function LoadingWaitlist() {
         transition={spring}
         className="w-full text-purple-600/75 text-sm"
       >
-        Sending email
+        Submitting email
       </motion.span>
       <motion.div
         initial={{ scale: 0, opacity: 0, x: 20 }}
