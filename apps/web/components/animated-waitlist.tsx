@@ -101,7 +101,7 @@ export default function AnimatedWaitlist() {
               onSubmit={handleSubmit}
             >
               <Turnstile
-                sitekey="0x4AAAAAAA61SwGZcaOFvmB_"
+                sitekey={process.env.NEXT_PUBLIC_CLOUDFLARE_SITE_KEY!}
                 action="verify"
                 cData="verifyLegitUser"
                 size="invisible"
