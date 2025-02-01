@@ -25,7 +25,7 @@ export async function POST(req: Request) {
 
     const result = await prisma.$transaction(async (tx) => {
       // Check if the email already exists in the waitlist
-      const existingEntry = await tx.waitlistWeb.findFirst({
+      const existingEntry = await tx.waitlist.findFirst({
         where: { email: body.email }
       })
 
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       }
 
       // Create a new waitlist entry
-      const newEntry = await tx.waitlistWeb.create({
+      const newEntry = await tx.waitlist.create({
         data: { email: body.email, isVerified: false }
       })
 
