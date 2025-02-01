@@ -54,6 +54,13 @@ export function ConfirmEmail({ id }: { id: string }) {
           <Hr style={divider} />
           <Section style={legalContainer}>
             <Link
+              href="https://truthordare.gg/api/emails/unsubscribe?id=123"
+              style={legalLink}
+            >
+              Unsubscribe
+            </Link>
+            <Text style={separator}>•</Text>
+            <Link
               href="https://truthordare.gg/privacy"
               style={legalLink}
             >
