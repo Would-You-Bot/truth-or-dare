@@ -5,7 +5,7 @@ export default function TermsOfServicePage() {
     <LegalLayout title="Terms of Service">
       <main className="mx-auto flex w-full max-w-8xl flex-col gap-8 pr-8 text-white">
         <section>
-          <p className="text-lg mb-4"><b>Last updated</b> [February 1, 2024]</p>
+          <p className="text-lg mb-4"><b>Last updated</b> February 2, 2024</p>
         </section>
 
         <section>
@@ -22,7 +22,7 @@ export default function TermsOfServicePage() {
           </p>
           <ul className="list-inside list-disc">
             <li>
-              Provide a valid email address (no fake emails)
+              Provide a valid email address (no fake emails, emails from temporary services, or disposable emails)
             </li>
             <li>
               Use our services fairly
@@ -54,7 +54,7 @@ export default function TermsOfServicePage() {
           </p>
           <ul className="list-inside list-disc">
             <li>
-              Sending an email to <a href='mailto:deletemydata@rivo.gg' className='underline underline-offset-1'>[deletemydata@rivo.gg]</a>
+              Sending an email to <a href='mailto:deletemydata@rivo.gg' className='underline underline-offset-1'>deletemydata@rivo.gg</a>
             </li>
             <li>
               Using the deletion button in the app (when available)
@@ -78,7 +78,7 @@ export default function TermsOfServicePage() {
 
         <section>
           <p>
-            For questions, contact <a href='mailto:contact@rivo.gg' className='underline underline-offset-1'>[contact@rivo.gg]</a>.
+            For questions, contact <a href='mailto:contact@rivo.gg' className='underline underline-offset-1'>contact@rivo.gg</a>.
           </p>
         </section>
       </main>

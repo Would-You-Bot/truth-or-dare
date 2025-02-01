@@ -11,7 +11,7 @@ export default function TermsOfServicePage() {
     <LegalLayout title="Terms of Service">
       <main className="mx-auto flex w-full max-w-8xl flex-col gap-8 pr-8 text-white">
         <section>
-          <p className="text-lg mb-4"><b>Last updated</b> [February 1, 2024]</p>
+          <p className="text-lg mb-4"><b>Last updated</b> February 2, 2024</p>
           <p>
             Rivo ("we," "us," or "our") operates this website to allow users to sign up for our Truth or Dare app. We are committed to protecting your personal data in compliance with the General Data Protection Regulation (GDPR) and German data protection laws.
           </p>
@@ -23,7 +23,7 @@ export default function TermsOfServicePage() {
             Rivo
           </p>
           <p>
-            Email: <a href='mailto:contact@rivo.gg' className='underline underline-offset-1'>[contact@rivo.gg]</a>
+            Email: <a href='mailto:contact@rivo.gg' className='underline underline-offset-1'>contact@rivo.gg</a>
           </p>
         </section>
 
@@ -64,10 +64,10 @@ export default function TermsOfServicePage() {
           <h2 className="font-bold text-lg">4. Data Sharing and Third Parties</h2>
           <ul className="list-inside list-disc">
             <li>
-              <b>Resend (Email Provider, Ireland)</b> – Used for email delivery and hosting within the EU.
+              <b>Resend (Email Provider, Ireland)</b> - Used for email delivery and hosting within the EU.
             </li>
             <li>
-              <b>Plausible Analytics (EU-based)</b> – Used for privacy-friendly, cookie-free analytics.
+              <b>Plausible Analytics (EU-based)</b> - Used for privacy-friendly, cookie-free analytics.
             </li>
           </ul>
         </section>
@@ -100,7 +100,7 @@ export default function TermsOfServicePage() {
         <section>
           <h2 className="font-bold text-lg">7. Contact</h2>
           <p>
-            For any privacy concerns, contact us at. <a href='contact@rivo.gg' className='underline'>[contact@rivo.gg]</a>
+            For any privacy concerns, contact us at. <a href='contact@rivo.gg' className='underline'>contact@rivo.gg</a>
           </p>
         </section>
       </main>
