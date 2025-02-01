@@ -5,7 +5,7 @@ export async function deleteUnconfirmedUsers() {
   const olderThan = new Date(Date.now() - time * 60 * 1000)
 
   try {
-    await prisma.waitlistWeb.deleteMany({
+    await prisma.waitlist.deleteMany({
       where: {
         isVerified: false,
         createdAt: {

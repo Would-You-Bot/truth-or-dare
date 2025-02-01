@@ -15,7 +15,7 @@ export async function GET(req: Request) {
 
   try {
     // Check if the email exists in the database
-    const user = await prisma.waitlistWeb.findUnique({
+    const user = await prisma.waitlist.findUnique({
       where: { id }
     })
 
@@ -26,7 +26,7 @@ export async function GET(req: Request) {
       })
     }
 
-    const updatedUser = await prisma.waitlistWeb.update({
+    const updatedUser = await prisma.waitlist.update({
       where: { id },
       data: { isVerified: true }
     })

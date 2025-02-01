@@ -19,7 +19,7 @@ export async function PUT(req: Request) {
       )
     }
 
-    const updatedEntry = await prisma.waitlistWeb.updateMany({
+    const updatedEntry = await prisma.waitlist.updateMany({
       where: { email: body.oldEmail },
       data: { email: body.newEmail }
     })

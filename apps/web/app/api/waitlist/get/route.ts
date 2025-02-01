@@ -8,7 +8,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const response = await prisma.waitlistWeb.findMany({
+    const response = await prisma.waitlist.findMany({
       select: {
         email: true
       }

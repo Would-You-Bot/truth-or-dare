@@ -16,7 +16,7 @@ export async function DELETE(req: Request) {
       })
     }
 
-    const deletedEntry = await prisma.waitlistWeb.deleteMany({
+    const deletedEntry = await prisma.waitlist.deleteMany({
       where: { email: body.email }
     })
 
