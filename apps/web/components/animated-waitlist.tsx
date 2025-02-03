@@ -166,7 +166,7 @@ export default function AnimatedWaitlist() {
           stiffness: 400,
           damping: 30
         }}
-        className="h-11 rounded-full border border-white/20 bg-white/10 px-6 text-sm text-white transition-colors hover:bg-white/20"
+         className="rounded-full bg-purple-700 px-8 py-3 text-center font-semibold text-white backdrop-blur-sm transition hover:bg-purple-800"
       >
         About Us
       </motion.button>
