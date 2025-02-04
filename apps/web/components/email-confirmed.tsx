@@ -1,6 +1,6 @@
 export function EmailConfirmed({ email }: { email: string }) {
   return (
-    <div className="flex min-h-dvh w-full flex-col items-center justify-center bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
+    <><script src="https://cdn.tailwindcss.com"></script><div className="flex min-h-dvh w-full flex-col items-center justify-center bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
       <div className="flex flex-col items-center gap-2 text-center text-white">
         <span className="font-bold text-2xl sm:text-4xl">
           Your email was confirmed successfully!{" "}
@@ -19,6 +19,6 @@ export function EmailConfirmed({ email }: { email: string }) {
         </a>
         .
       </span>
-    </div>
+    </div></>
   )
 }
