@@ -30,6 +30,9 @@ COPY . .
 ARG NEXT_PUBLIC_CLOUDFLARE_SITE_KEY
 ENV NEXT_PUBLIC_CLOUDFLARE_SITE_KEY=${NEXT_PUBLIC_CLOUDFLARE_SITE_KEY}
 
+ARG RESEND_API_KEY
+ENV RESEND_API_KEY=${RESEND_API_KEY}
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
@@ -69,7 +72,7 @@ EXPOSE 3000
 
 ENV PORT=3000
 
-# Start the application using the start script
-ENV HOSTNAME="0.0.0.0"
-CMD ["pnpm", "start"]
+# server.js is created by next build from the standalone output
+# https://nextjs.org/docs/pages/api-reference/next-config-js/output
+CMD HOSTNAME="0.0.0.0" node server.js
 
