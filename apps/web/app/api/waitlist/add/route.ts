@@ -2,6 +2,7 @@ import { confirmEmailData } from "@/data/emails/confirm";
 import { ConfirmEmail } from "@/emails/confirmation";
 import { prisma } from "@/helpers/prisma";
 import { sendEmail } from "@/hooks/resend";
+import { EmailSchema } from "@/types/emails";
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
 import { createElement } from "react";
@@ -26,11 +27,8 @@ export async function POST(req: Request) {
     }
 
     // Zod email validation
-    const emailBody = z.object({
-      email: z.string().email(),
-    });
-
-    const { success } = emailBody.safeParse(body);
+    
+    const { success } = EmailSchema.safeParse(body);
 
     if (!success) {
       return new NextResponse(JSON.stringify({ error: "Email is not valid" }), {
