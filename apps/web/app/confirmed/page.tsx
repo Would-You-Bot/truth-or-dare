@@ -1,6 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 
 export default function ConfirmedPage() {
     const searchParams = useSearchParams()
@@ -13,7 +14,9 @@ export default function ConfirmedPage() {
                 <span className="font-bold text-2xl sm:text-4xl">
                     Your email was confirmed successfully!{" "}
                 </span>
+                <Suspense>
                 <span className="font-medium text-lg sm:text-2xl">{email}</span>
+                </Suspense>
             </div>
             <span className="-translate-x-1/2 fixed bottom-16 left-1/2 text-center text-white">
                 If this is not your email, there might've been an error.{' '}
