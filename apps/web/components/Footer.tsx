@@ -6,7 +6,15 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
           <p className="mb-6 text-center text-sm text-white/80 md:mb-0 md:text-left">
-            © 2025 <Link href="https://rivo.gg" target="_blank" className='hover:text-white' >Rivo</Link>. All rights reserved.
+            © 2025{' '}
+            <Link
+              href="https://rivo.gg"
+              target="_blank"
+              className="hover:text-white"
+            >
+              Rivo
+            </Link>
+            . All rights reserved.
           </p>
           <nav className="flex flex-col items-center gap-4 md:flex-row">
             <Link

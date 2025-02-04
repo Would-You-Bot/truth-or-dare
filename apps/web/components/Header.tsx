@@ -2,8 +2,8 @@
 
 import { Menu, Sparkles, X } from 'lucide-react'
 import Link from 'next/link'
-
 import { useState } from 'react'
+import { JoinWaitlist } from './join-waitlist'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -23,12 +23,14 @@ export function Header() {
           <HeaderLink href="/about">About</HeaderLink>
         </nav>
         <div className="hidden gap-4 md:flex">
-          <Link
-            href="#waitlist"
-            className="rounded-full bg-white px-6 py-2 font-medium text-purple-600 transition hover:bg-white/90"
-          >
-            Join Waitlist
-          </Link>
+          <JoinWaitlist>
+            <button
+              type="button"
+              className="rounded-full bg-white px-6 py-2 font-medium text-purple-600 transition hover:bg-white/90"
+            >
+              Join Waitlist
+            </button>
+          </JoinWaitlist>
         </div>
         <button
           type="button"

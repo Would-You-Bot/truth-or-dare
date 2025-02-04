@@ -1,103 +1,87 @@
-import { LegalLayout } from "@/components/legal-layout";
+import { LegalLayout } from '@/components/legal-layout'
 
 export default function TermsOfServicePage() {
   return (
     <LegalLayout title="Terms of Service">
-      <main className="flex mx-auto w-full max-w-8xl flex-col gap-8 pr-8 text-white">
+      <main className="mx-auto flex w-full max-w-8xl flex-col gap-8 pr-8 text-white">
         <section>
-          <h2 className="text-lg font-bold">1. Acceptance of Terms</h2>
+          <p className="text-lg mb-4"><b>Last updated</b> February 2, 2024</p>
+        </section>
+
+        <section>
+          <h2 className="font-bold text-lg">1. Eligibility</h2>
           <p>
-            By accessing or using the Truth or Dare App and or Website, you agree to be bound
-            by these Terms of Service and all applicable laws and regulations.
-            If you do not agree with any part of these terms, you may not use
-            our service.
+            You must be at least <b>13 years old</b> and reside in a country where the <b>Google Play Store</b> and <b>Apple App Store</b> are available.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-bold">2. Use of Service</h2>
-          <p>
-            You may use our service only for lawful purposes and in accordance
-            with these Terms. You agree not to use the service:
+          <h2 className="font-bold text-lg">2. User Obligations</h2>
+          <p className='mb-2'>
+            By signing up, you agree to:
           </p>
-          <ul className="list-disc list-inside">
+          <ul className="list-inside list-disc">
             <li>
-              In any way that violates any applicable federal, state, local, or
-              international law or regulation
+              Provide a valid email address (no fake emails, emails from temporary services, or disposable emails)
             </li>
             <li>
-              To transmit, or procure the sending of, any advertising or
-              promotional material, including any "junk mail," "chain letter,"
-              "spam," or any other similar solicitation
+              Use our services fairly
             </li>
             <li>
-              To impersonate or attempt to impersonate the Company, a Company
-              employee, another user, or any other person or entity
+              Receive <b>marketing emails</b> about our app launch and updates
             </li>
           </ul>
         </section>
 
         <section>
-          <h2 className="text-lg font-bold">3. User Accounts</h2>
+          <h2 className="font-bold text-lg">3. Violations</h2>
           <p>
-            When you create an account with us, you must provide information
-            that is accurate, complete, and current at all times. Failure to do
-            so constitutes a breach of the Terms, which may result in immediate
-            termination of your account on our service.
+            We reserve the right to <b>ban users</b> who violate these terms.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-bold">4. Intellectual Property</h2>
+          <h2 className="font-bold text-lg">4. Liability Disclaimer</h2>
           <p>
-            The service and its original content, features, and functionality
-            are and will remain the exclusive property of Truth or Dare App and
-            its licensors. The service is protected by copyright, trademark, and
-            other laws of both the United States and foreign countries.
+            We are <b>not responsible</b> for any misuse of our app or inappropriate content created by users.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-bold">5. Termination</h2>
+          <h2 className="font-bold text-lg">5. Account Termination</h2>
           <p>
-            We may terminate or suspend your account immediately, without prior
-            notice or liability, for any reason whatsoever, including without
-            limitation if you breach the Terms. Upon termination, your right to
-            use the service will immediately cease.
+            Users can delete their data by:
+          </p>
+          <ul className="list-inside list-disc">
+            <li>
+              Sending an email to <a href='mailto:deletemydata@rivo.gg' className='underline underline-offset-1'>deletemydata@rivo.gg</a>
+            </li>
+            <li>
+              Using the deletion button in the app (when available)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="font-bold text-lg">6. Governing Law</h2>
+          <p>
+            These terms are governed by the laws of <b>Germany</b>.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-bold">6. Limitation of Liability</h2>
+          <h2 className="font-bold text-lg">7. Third-Party Services</h2>
           <p>
-            In no event shall Truth or Dare App, nor its directors, employees,
-            partners, agents, suppliers, or affiliates, be liable for any
-            indirect, incidental, special, consequential, or punitive damages,
-            including without limitation, loss of profits, data, use, goodwill,
-            or other intangible losses, resulting from your access to or use of
-            or inability to access or use the service.
+            Currently, we <b>do not</b> support third-party integrations.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-bold">7. Changes to Terms</h2>
           <p>
-            We reserve the right, at our sole discretion, to modify or replace
-            these Terms at any time. What constitutes a material change will be
-            determined at our sole discretion.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-lg font-bold">8. Contact Us</h2>
-          <p>
-            If you have any questions about these Terms, please contact us at:{" "}
-            <a href="mailto:terms@rivo.gg" className="underline">
-              terms@rivo.gg
-            </a>
+            For questions, contact <a href='mailto:contact@rivo.gg' className='underline underline-offset-1'>contact@rivo.gg</a>.
           </p>
         </section>
       </main>
     </LegalLayout>
-  );
+  )
 }

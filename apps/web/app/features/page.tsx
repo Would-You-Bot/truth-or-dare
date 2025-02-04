@@ -1,8 +1,6 @@
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { ArrowRight, Gift, Shield, Sparkles, Users, Zap } from 'lucide-react'
-
-
+import { ArrowRight, Gift, Shield, Users, Zap } from 'lucide-react'
 
 export default function FeaturesPage() {
   return (

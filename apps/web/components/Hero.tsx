@@ -1,5 +1,7 @@
-import { ArrowRight, Calendar } from 'lucide-react'
-import Link from 'next/link'
+'use client'
+
+import { Calendar } from 'lucide-react'
+import AnimatedWaitlist from './animated-waitlist'
 
 export function Hero() {
   return (
@@ -18,19 +20,7 @@ export function Hero() {
         questions and dares. Powered by community engagement.
       </p>
       <div className="flex flex-col gap-4 sm:flex-row">
-        <Link
-          href="#waitlist"
-          className="group inline-flex items-center justify-center rounded-full bg-white px-8 py-3 font-semibold text-purple-600 transition hover:bg-white/90"
-        >
-          Join Waitlist
-          <ArrowRight className="ml-2 h-5 w-5 transition group-hover:translate-x-1" />
-        </Link>
-        <Link
-          href="/about"
-          className="rounded-full bg-purple-700 px-8 py-3 text-center font-semibold text-white backdrop-blur-sm transition hover:bg-purple-800"
-        >
-          About Us
-        </Link>
+        <AnimatedWaitlist />
       </div>
     </div>
   )
