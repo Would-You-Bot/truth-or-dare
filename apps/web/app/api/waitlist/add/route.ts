@@ -23,7 +23,7 @@ export async function POST(req: Request) {
       })
     }
 
-    const result = await prisma.$transaction(async (tx: typeof prisma) => {
+    const result = await prisma.$transaction(async (tx: any) => {
       // Check if the email already exists in the waitlist
       const existingEntry = await tx.waitlist.findFirst({
         where: { email: body.email }
