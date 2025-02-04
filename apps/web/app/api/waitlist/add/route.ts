@@ -3,11 +3,12 @@ import { ConfirmEmail } from '@/emails/confirmation'
 import { prisma } from '@/helpers/prisma'
 import { sendEmail } from '@/hooks/resend'
 import { render } from '@react-email/render'
+import { NextResponse } from 'next/server'
 import { createElement } from 'react'
 
 export async function POST(req: Request) {
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+    return new NextResponse(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
       headers: { 'Content-Type': 'application/json' }
     })
@@ -17,7 +18,7 @@ export async function POST(req: Request) {
     const body = await req.json()
 
     if (!body.email) {
-      return new Response(JSON.stringify({ error: 'Email is required' }), {
+      return new NextResponse(JSON.stringify({ error: 'Email is required' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
       })
@@ -53,7 +54,7 @@ export async function POST(req: Request) {
       return newEntry
     })
 
-    return new Response(JSON.stringify(result), {
+    return new NextResponse(JSON.stringify(result), {
       status: 201,
       headers: { 'Content-Type': 'application/json' }
     })
@@ -61,7 +62,7 @@ export async function POST(req: Request) {
     const message =
       error instanceof Error ? error.message : 'An unexpected error occurred'
 
-    return new Response(
+    return new NextResponse(
       JSON.stringify({
         error: 'Failed to add email to waitlist',
         details: message
