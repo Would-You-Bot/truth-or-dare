@@ -1,6 +1,5 @@
 import { EmailConfirmed } from '@/components/email-confirmed';
 import { prisma } from '@/helpers/prisma';
-import { renderToString } from 'react-dom/server';
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -37,9 +36,8 @@ export async function GET(req: Request) {
         }
       );
     }
-
-    // Render the email component using @react-email/render
-    const html = await renderToString(EmailConfirmed({ email: updatedUser.email }));
+    const ReactDOMServer = (await import('react-dom/server')).default
+    const html = await ReactDOMServer.renderToString(EmailConfirmed({ email: updatedUser.email }));
 
     return new Response(html, {
       status: 200,
