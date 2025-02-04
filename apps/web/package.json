@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node --loader ts-node/esm --experimental-specifier-resolution=node ./server/index.ts",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node --loader ts-node/esm --experimental-specifier-resolution=node ./server/index.ts",
+    "start": "node --loader ts-node/esm --experimental-specifier-resolution=node ./server/index.ts",
     "lint": "next lint",
     "format": "biome format . --write --config-path=./biome.json",
     "prisma:generate": "prisma generate",
