@@ -3,7 +3,7 @@ export function EmailConfirmed({ email }: { email: string }) {
     <div className="flex min-h-dvh w-full flex-col items-center justify-center bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600">
       <div className="flex flex-col items-center gap-2 text-center text-white">
         <span className="font-bold text-2xl sm:text-4xl">
-          Your email was confirmed successfully!
+          Your email was confirmed successfully!{" "}
         </span>
         <span className="font-medium text-lg sm:text-2xl">{email}</span>
       </div>
