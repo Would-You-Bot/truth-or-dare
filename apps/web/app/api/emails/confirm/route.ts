@@ -37,8 +37,8 @@ export async function GET(req: Request) {
       );
     }
 
-    return NextResponse.redirect(`/confirmed?email=${updatedUser.email}`, 302);
-    
+    return NextResponse.redirect(`https://truthordare.gg/confirmed?email=${updatedUser.email}`, 302);
+
   } catch (error) {
     return new Response(
       JSON.stringify({
