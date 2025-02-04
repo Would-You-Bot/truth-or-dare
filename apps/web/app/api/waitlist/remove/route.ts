@@ -1,4 +1,5 @@
 import { prisma } from '@/helpers/prisma'
+import { NextResponse } from 'next/server'
 
 export async function DELETE(req: Request) {
   if (req.method !== 'DELETE') {
@@ -11,9 +12,16 @@ export async function DELETE(req: Request) {
     const body = await req.json()
 
     if (!body.email) {
-      return new Response(JSON.stringify({ error: 'Email is required' }), {
+      return new NextResponse(JSON.stringify({ error: 'Email is required' }), {
         status: 400
       })
+    }
+
+    if(!body.token || body.token !== process.env.TOKEN!) {
+      return  new NextResponse(
+        JSON.stringify({ error: 'No access!' }),
+        { status: 403 }
+      )
     }
 
     const deletedEntry = await prisma.waitlist.deleteMany({
@@ -21,18 +29,18 @@ export async function DELETE(req: Request) {
     })
 
     if (deletedEntry.count === 0) {
-      return new Response(
+      return new NextResponse(
         JSON.stringify({ error: 'No matching email found' }),
         { status: 404 }
       )
     }
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new NextResponse(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     })
   } catch (error) {
-    return new Response(
+    return new NextResponse(
       JSON.stringify({
         error: 'Failed to remove email from waitlist',
         details: error instanceof Error ? error.message : String(error)
