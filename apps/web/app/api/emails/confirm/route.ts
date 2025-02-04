@@ -1,5 +1,5 @@
-import { EmailConfirmed } from '@/components/email-confirmed';
 import { prisma } from '@/helpers/prisma';
+import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -36,13 +36,9 @@ export async function GET(req: Request) {
         }
       );
     }
-    const ReactDOMServer = (await import('react-dom/server')).default
-    const html = await ReactDOMServer.renderToString(EmailConfirmed({ email: updatedUser.email }));
 
-    return new Response(html, {
-      status: 200,
-      headers: { 'Content-Type': 'text/html' },
-    });
+    return NextResponse.redirect(`/confirmed?email=${updatedUser.email}`, 302);
+    
   } catch (error) {
     return new Response(
       JSON.stringify({
