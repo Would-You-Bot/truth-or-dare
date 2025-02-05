@@ -1,18 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Mail, MailX, Loader2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
+
 export default function Unsubscribe() {
   const [status, setStatus] = useState<
     "confirm" | "processing" | "unsubscribed"
   >("confirm");
-  const searchParams = useSearchParams();
+  
 
   const handleUnsubscribe = async () => {
+    const searchParams = useSearchParams();
     setStatus("processing");
     try {
       const response = await fetch(`/api/waitlist/remove/`, {
@@ -72,6 +74,7 @@ export default function Unsubscribe() {
         <div className="flex flex-col sm:flex-row gap-4 pt-8">
           {status === "confirm" && (
             <>
+            <Suspense>
               <Button
                 size="lg"
                 onClick={handleUnsubscribe}
@@ -88,6 +91,7 @@ export default function Unsubscribe() {
                   No, Keep Me Subscribed
                 </Button>
               </Link>
+            </Suspense>
             </>
           )}
           {status === "unsubscribed" && (
