@@ -29,16 +29,12 @@ export async function DELETE(req: NextRequest) {
       )
     }
 
-    const deletedEntry = await prisma.waitlist.deleteMany({
+    const deletedEntry = await prisma.waitlist.delete({
       where: { email: body.id, token: body.token }
     })
 
-    if (deletedEntry.count === 0) {
-      return new NextResponse(
-        JSON.stringify({ error: 'No matching email found' }),
-        { status: 404 }
-      )
-    }
+    console.log('Deleted entry:', deletedEntry)
+
 
     return new NextResponse(JSON.stringify({ success: true }), {
       status: 200,
