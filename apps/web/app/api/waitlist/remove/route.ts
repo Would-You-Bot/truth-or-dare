@@ -5,11 +5,13 @@ export async function DELETE(req: NextRequest) {
   try {
     const body = await req.json()
 
-    if (!body.id) {
-      return new NextResponse(JSON.stringify({ error: 'Email is required' }), {
+    if (!body.id || !body.token) {
+      return new NextResponse(JSON.stringify({ error: 'Id/Token is required' }), {
         status: 400
       })
     }
+
+    console.log(body.id + ' ' + body.token + ' ' + typeof body.id)
 
     const emailEntry = await prisma.waitlist.findFirst({
       where: { id: body.id },
