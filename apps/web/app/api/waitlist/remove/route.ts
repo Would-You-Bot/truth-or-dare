@@ -1,8 +1,7 @@
 import { prisma } from '@/helpers/prisma'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
-export async function DELETE(req: Request) {
-
+export async function DELETE(req: NextRequest) {
   try {
     const body = await req.json()
 

@@ -4,15 +4,36 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sparkles, Mail, MailX, Loader2 } from "lucide-react"
+import { useSearchParams } from "next/navigation"
 
 export default function Unsubscribe() {
   const [status, setStatus] = useState<"confirm" | "processing" | "unsubscribed">("confirm")
+const searchParams = useSearchParams()
 
   const handleUnsubscribe = async () => {
     setStatus("processing")
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setStatus("unsubscribed")
+    try {
+			const response = await fetch(`/api/waitlist/remove/`, {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+                body: JSON.stringify({
+                    id: searchParams.get('id'),
+                    token: searchParams.get('token')
+                }),
+			})
+
+			if (!response.ok) {
+				throw new Error(`Error: ${response.statusText}`)
+			}
+            setStatus("unsubscribed")
+        } catch (error) {
+            console.error(error)
+            setStatus("confirm")
+            return
+        }
+    
   }
 
   return (

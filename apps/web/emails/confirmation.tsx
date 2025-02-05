@@ -54,7 +54,7 @@ export function ConfirmEmail({ id, token }: { id: string, token: string }) {
           <Hr style={divider} />
           <Section style={legalContainer}>
             <Link
-              href={`https://truthordare.gg/api/emails/unsubscribe?id=${id}&token=${token}`}
+              href={`https://truthordare.gg/unsubscribe?id=${id}&token=${token}`}
               style={legalLink}
             >
               Unsubscribe

@@ -1,6 +1,8 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /unsubscribe
+Disallow: /confirmed
 
 # Cliqzbot
 User-agent: Cliqzbot
