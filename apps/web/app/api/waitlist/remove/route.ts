@@ -2,30 +2,37 @@ import { prisma } from '@/helpers/prisma'
 import { NextResponse } from 'next/server'
 
 export async function DELETE(req: Request) {
-  if (req.method !== 'DELETE') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-      status: 405
-    })
-  }
 
   try {
     const body = await req.json()
 
-    if (!body.email) {
+    if (!body.id) {
       return new NextResponse(JSON.stringify({ error: 'Email is required' }), {
         status: 400
       })
     }
 
-    if(!body.token || body.token !== process.env.TOKEN!) {
-      return  new NextResponse(
+    const emailEntry = await prisma.waitlist.findFirst({
+      where: { id: body.id },
+      select: { token: true }
+    })
+
+    if(!emailEntry) {
+      return new NextResponse(
+        JSON.stringify({ error: 'No matching email found' }),
+        { status: 404 }
+      )
+    }
+
+    if(!body.token || body.token !== emailEntry.token) {
+      return new NextResponse(
         JSON.stringify({ error: 'No access!' }),
         { status: 403 }
       )
     }
 
     const deletedEntry = await prisma.waitlist.deleteMany({
-      where: { email: body.email }
+      where: { email: body.id, token: body.token }
     })
 
     if (deletedEntry.count === 0) {
