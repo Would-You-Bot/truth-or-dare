@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, Mail, MailX, Loader2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
-export const dynamic = 'force-dynamic';
-
 export default function Unsubscribe() {
   const [status, setStatus] = useState<
     "confirm" | "processing" | "unsubscribed"
@@ -23,8 +21,8 @@ export default function Unsubscribe() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: searchParams.get("id"),
-          token: searchParams.get("token"),
+          id: searchParams.get("id") || "",
+          token: searchParams.get("token") || "",
         }),
       });
 
