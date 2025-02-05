@@ -11,10 +11,9 @@ export default function Unsubscribe() {
   const [status, setStatus] = useState<
     "confirm" | "processing" | "unsubscribed"
   >("confirm");
-  
+  const searchParams = useSearchParams();
 
   const handleUnsubscribe = async () => {
-    const searchParams = useSearchParams();
     setStatus("processing");
     try {
       const response = await fetch(`/api/waitlist/remove/`, {
