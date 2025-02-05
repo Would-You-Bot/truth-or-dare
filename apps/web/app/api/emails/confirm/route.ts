@@ -13,7 +13,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const user = await prisma.waitlist.findUnique({ where: { id } });
+    const user = await prisma.waitlist.findFirst({ where: { id } });
 
     if (!user) {
       return new Response(JSON.stringify({ error: 'ID not found' }), {

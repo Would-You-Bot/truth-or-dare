@@ -18,7 +18,7 @@ const baseUrl = String(
 ).replace(trailingSlashRegex, '')
 const apiPath = '/api/emails/confirm'
 
-export function ConfirmEmail({ id }: { id: string }) {
+export function ConfirmEmail({ id, token }: { id: string, token: string }) {
   if (!id) {
     throw new Error('ID is required')
   }
@@ -54,7 +54,7 @@ export function ConfirmEmail({ id }: { id: string }) {
           <Hr style={divider} />
           <Section style={legalContainer}>
             <Link
-              href="https://truthordare.gg/api/emails/unsubscribe?id=123"
+              href={`https://truthordare.gg/unsubscribe?id=${id}&token=${token}`}
               style={legalLink}
             >
               Unsubscribe

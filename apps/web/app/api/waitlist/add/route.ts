@@ -6,7 +6,6 @@ import { EmailSchema } from "@/types/emails";
 import { render } from "@react-email/render";
 import { NextResponse } from "next/server";
 import { createElement } from "react";
-import { z } from "zod";
 
 export async function POST(req: Request) {
   if (req.method !== "POST") {
@@ -49,7 +48,7 @@ export async function POST(req: Request) {
 
       // Create a new waitlist entry
       const newEntry = await tx.waitlist.create({
-        data: { email: body.email, isVerified: false },
+        data: { email: body.email },
       });
 
       // Attempt to send the email
@@ -57,7 +56,7 @@ export async function POST(req: Request) {
         to: body.email,
         from: confirmEmailData.from,
         subject: confirmEmailData.subject,
-        email: await render(createElement(ConfirmEmail, { id: newEntry.id })),
+        email: await render(createElement(ConfirmEmail, { id: newEntry.id, token: newEntry.token })),
       });
 
       if (!emailSent) {
