@@ -13,10 +13,12 @@ export async function DELETE(req: NextRequest) {
 
     console.log(body.id + ' ' + body.token + ' ' + typeof body.id)
 
-    const emailEntry = await prisma.waitlist.findFirst({
+    const emailEntry = await prisma.waitlist.findUnique({
       where: { id: body.id },
       select: { token: true }
     })
+
+    console.log(emailEntry)
 
     if(!emailEntry) {
       return new NextResponse(
