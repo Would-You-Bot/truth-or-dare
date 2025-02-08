@@ -24,8 +24,6 @@ export async function POST(req: Request) {
         headers: { "Content-Type": "application/json" },
       });
     }
-
-    // Zod email validation
     
     const { success } = EmailSchema.safeParse(body);
 
