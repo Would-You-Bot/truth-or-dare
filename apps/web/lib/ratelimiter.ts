@@ -13,7 +13,7 @@ import { redis } from '@/helpers/redis'
 export async function defaultRateLimiter() {
 	return new Ratelimit({
 		redis,
-		limiter: Ratelimit.slidingWindow(2, '60 s'),
-		timeout: 160_000 // 2 minutes
+		limiter: Ratelimit.slidingWindow(3, '60 s'),
+		timeout: 300_000 // 5 minutes
 	})
 }
