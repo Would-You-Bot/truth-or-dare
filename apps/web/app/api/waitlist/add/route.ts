@@ -24,8 +24,6 @@ export async function POST(req: Request) {
         headers: { "Content-Type": "application/json" },
       });
     }
-
-    // Zod email validation
     
     const { success } = EmailSchema.safeParse(body);
 
@@ -48,7 +46,7 @@ export async function POST(req: Request) {
 
       // Create a new waitlist entry
       const newEntry = await tx.waitlist.create({
-        data: { email: body.email },
+        data: { email: body.email, isVerified: false },
       });
 
       // Attempt to send the email
