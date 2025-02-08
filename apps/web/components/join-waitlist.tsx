@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form"
 import Turnstile from "react-turnstile"
 import { toast } from "sonner"
 import { z } from "zod"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "motion/react";
 import { EmailSchema } from "@/types/emails"
 
 interface JoinWaitlistProps extends DialogProps {
