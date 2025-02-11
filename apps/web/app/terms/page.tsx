@@ -5,7 +5,7 @@ export default function TermsOfServicePage() {
     <LegalLayout title="Terms of Service">
       <main className="mx-auto flex w-full max-w-8xl flex-col gap-8 pr-8 text-white">
         <section>
-          <p className="text-lg mb-4"><b>Last updated</b> February 2, 2024</p>
+          <p className="text-lg mb-4"><b>Last updated</b> February 2, 2025</p>
         </section>
 
         <section>
