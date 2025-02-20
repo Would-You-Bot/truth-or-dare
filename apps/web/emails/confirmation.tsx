@@ -49,7 +49,7 @@ export function ConfirmEmail({ id, token }: { id: string, token: string }) {
           </Section>
           <Text style={footer}>
             If you didn't request this email, you can safely ignore it. Someone
-            might have entered your email address by mistake. Your email will be deleted within 15 minutes.
+            might have entered your email address by mistake. Your email will be deleted from our servers within 15 minutes!
           </Text>
           <Hr style={divider} />
           <Section style={legalContainer}>
